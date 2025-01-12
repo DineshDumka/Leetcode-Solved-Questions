@@ -1,0 +1,40 @@
+class Solution {
+public:
+    vector<int> zigzagTraversal(vector<vector<int>>& arr) {
+        int n = arr.size() , m = arr[0].size();
+        vector<int>ans;
+        //int k = 0;
+        int previ=0 , prevj=0;
+        for(int i=0;i<n;i++){
+            if(i%2==0){
+                if(previ==i-1 && prevj==0){
+                    for(int j = 1;j<m;j+=2){
+                        ans.push_back(arr[i][j]);
+                        previ = i;
+                        prevj = j;
+                    }
+                }
+                else{
+                    for(int j = 0;j<m;j+=2){
+                         ans.push_back(arr[i][j]);
+                        previ = i;
+                        prevj = j;
+                    }
+                }
+            }
+            else{
+                if(previ==i-1 && prevj==m-1){
+                    for(int j = m-2;j>=0;j-=2){
+                         ans.push_back(arr[i][j]);
+                    }
+                }
+                else{
+                    for(int j = m-1;j>=0;j-=2){
+                         ans.push_back(arr[i][j]);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
