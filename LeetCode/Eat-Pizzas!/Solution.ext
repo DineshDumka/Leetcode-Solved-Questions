@@ -1,0 +1,24 @@
+class Solution {
+public:
+    long long maxWeight(vector<int>& arr) {
+        int n = arr.size();
+        int odd = (n+8-1)/8;
+        int even = n/8;
+        sort(arr.rbegin(),arr.rend());
+        long long ans = 0;
+        for(int i=0;i<n;i++){
+            if(odd>0){
+                ans += arr[i];
+                odd--;
+                if(odd==0) i++;
+            }else if(even > 0){
+                ans += arr[i];
+                even--;
+                i++;
+            }else{
+                break;
+            }
+        }
+        return ans;
+    }
+};
