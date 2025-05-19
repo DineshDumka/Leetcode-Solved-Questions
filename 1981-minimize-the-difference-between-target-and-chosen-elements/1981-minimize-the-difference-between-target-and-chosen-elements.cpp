@@ -3,7 +3,7 @@ public:
     int  rec(int r, vector<vector<int>>& mat, int target, int sum, vector<vector<int>>& dp){
         int n = mat.size() , m = mat[0].size();
         //base
-        if(r == n){
+        if(r >= n){
             return abs(sum - target);
         }
 
@@ -23,7 +23,7 @@ public:
     }
     int minimizeTheDifference(vector<vector<int>>& mat, int target) {
         int n = mat.size();
-        int maxsum = 4800;
+        int maxsum = 48000;
         vector<vector<int>> dp(n+1, vector<int>(maxsum+1, -1));
         return rec(0, mat, target, 0, dp);
         
