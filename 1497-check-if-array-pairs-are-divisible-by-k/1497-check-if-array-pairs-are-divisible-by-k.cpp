@@ -13,6 +13,7 @@ public:
             arr[i] = ((arr[i] %k) +k)%k;
             mpp[arr[i]]++;
         }
+        if(mpp.find(0) != mpp.end() && mpp[0]&1) return false;
         for(int i=1;i<k;i++){
             if(mpp[i] != mpp[k - i])return false;
         }
