@@ -20,8 +20,7 @@ public:
             for(auto neigh : graph[node]){
                 if(!vis[neigh][mask]){
                     vis[neigh][mask] = 1;
-                    int newmask = mask | (1<<neigh);
-                    q.push({neigh ,newmask , moves+1 });
+                    q.push({neigh ,mask | (1<<neigh) , moves+1 });
                 }
             }
         }
@@ -31,10 +30,7 @@ public:
         int n = graph.size();
         int ans = 1e9;
         for(int i=0;i<n;i++){
-            //if(!vis[i][(1<<i)]){
-              //  vis[i][(1<<i)] = 1;
                 ans = min(ans , bfs(i ,graph));
-           // }
         }
         return ans;
     }
