@@ -19,10 +19,14 @@ public:
                 pq.push({s[i] , i});
             }
         }
-        string ans(pq.size() , ' ');
+        vector<char> arr(s.size(), '*');
         while(!pq.empty()){
             auto [ch , ind] = pq.top(); pq.pop();
-            ans[ind] = ch;
+            arr[ind] = ch;
+        }
+        string ans = "";
+        for(auto x : arr){
+            if(x != '*')ans += x;
         }
         return ans;
     }
